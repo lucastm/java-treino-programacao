@@ -14,6 +14,10 @@ public class Conta {
 		return saldo;
 	}
 
+	public void setSaldo(double newSaldo) {
+		saldo = newSaldo;
+	}
+
 	public String getCpf() {
 		return cpf;
 	}
