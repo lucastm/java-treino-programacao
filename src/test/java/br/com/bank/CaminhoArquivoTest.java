@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 class CaminhoArquivoTest {
@@ -37,6 +38,8 @@ class CaminhoArquivoTest {
         caminhoArquivo = CaminhoArquivo.getInstance(2001);
         assertEquals(Paths.get("/tmp/3"), caminhoArquivo.getDiretorio());
         assertEquals(Paths.get("/tmp/3/2001"), caminhoArquivo.getArquivo());
+
+        assertThrows(RuntimeException.class, () -> CaminhoArquivo.getInstance(null));
 
     }
 

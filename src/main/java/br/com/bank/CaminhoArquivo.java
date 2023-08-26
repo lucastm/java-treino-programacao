@@ -27,6 +27,7 @@ public class CaminhoArquivo {
     }
 
     public static CaminhoArquivo getInstance(Integer id) {
+        if (id == null) throw new RuntimeException();
         String basePath = "/tmp/";
         Integer pageNumber = ((id - 1) / 1000) + 1;
         String dirName = basePath + pageNumber;
