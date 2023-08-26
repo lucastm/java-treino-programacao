@@ -6,12 +6,13 @@ import org.junit.jupiter.api.Test;
 import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 class CaminhoArquivoTest {
 
     @Test
-    @Disabled
+    // @Disabled
     public void deve_montar_caminho_para_arquivo() {
 
         CaminhoArquivo caminhoArquivo = CaminhoArquivo.getInstance(1);
@@ -37,6 +38,8 @@ class CaminhoArquivoTest {
         caminhoArquivo = CaminhoArquivo.getInstance(2001);
         assertEquals(Paths.get("/tmp/3"), caminhoArquivo.getDiretorio());
         assertEquals(Paths.get("/tmp/3/2001"), caminhoArquivo.getArquivo());
+
+        assertThrows(RuntimeException.class, () -> CaminhoArquivo.getInstance(null));
 
     }
 

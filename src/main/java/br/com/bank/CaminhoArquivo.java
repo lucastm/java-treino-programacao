@@ -27,22 +27,11 @@ public class CaminhoArquivo {
     }
 
     public static CaminhoArquivo getInstance(Integer id) {
-        String b = "/tmp/";
-        String d = null;
-        if (id <= 1000) {
-            d = b + id;
-        } else {
-            int i = id;
-            boolean f = true;
-            while (f) {
-                if (id <= (i * 1000)) {
-                    d = b + i;
-                    f = false;
-                }
-                i++;
-            }
-        }
-        return new CaminhoArquivo(Paths.get(d), Paths.get(d));
+        if (id == null) throw new RuntimeException();
+        String basePath = "/tmp/";
+        Integer pageNumber = ((id - 1) / 1000) + 1;
+        String dirName = basePath + pageNumber;
+        return new CaminhoArquivo(Paths.get(dirName), Paths.get(dirName + "/" + id));
 
     }
 
