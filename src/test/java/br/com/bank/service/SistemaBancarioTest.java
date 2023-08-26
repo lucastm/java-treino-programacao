@@ -16,9 +16,18 @@ import static org.junit.jupiter.api.Assertions.*;
 @MockitoSettings(strictness = Strictness.LENIENT)
 class SistemaBancarioTest {
 
-//    @InjectMocks
-//    private SistemaBancario sistemaBancario;
-//    @Mock
-//    private Bacen bacen;
+   @InjectMocks
+   private SistemaBancario sistemaBancario;
+   @Mock
+   private Bacen bacen;
 
+   @Test
+   public void deve_registrar_banco_com_bacen_fake() {
+        sistemaBancario = new SistemaBancario(new BacenFake());
+        Banco banco0 = new Banco("Zero");
+        Banco banco1 = new Banco("Um");
+
+        assertEquals(0, sistemaBancario.registrarBanco(banco0));
+        assertEquals(1, sistemaBancario.registrarBanco(banco1));
+   }
 }
