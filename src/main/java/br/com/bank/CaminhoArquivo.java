@@ -30,9 +30,9 @@ public class CaminhoArquivo {
         String b = "/tmp/";
         String d = null;
         if (id <= 1000) {
-            d = b + id;
+            d = b + 1;
         } else {
-            int i = id;
+            int i = 1;
             boolean f = true;
             while (f) {
                 if (id <= (i * 1000)) {
@@ -42,7 +42,7 @@ public class CaminhoArquivo {
                 i++;
             }
         }
-        return new CaminhoArquivo(Paths.get(d), Paths.get(d));
+        return new CaminhoArquivo(Paths.get(d), Paths.get(d + "/" + id));
 
     }
 
