@@ -30,4 +30,12 @@ class SistemaBancarioTest {
         assertEquals(0, sistemaBancario.registrarBanco(banco0));
         assertEquals(1, sistemaBancario.registrarBanco(banco1));
    }
+
+   @Test
+   public void deve_registrar_banco_com_bacen_stub() {
+        sistemaBancario = new SistemaBancario(new BacenStub());
+        Banco banco0 = new Banco("Zero");
+
+        assertEquals(0, sistemaBancario.registrarBanco(banco0));
+   }
 }
